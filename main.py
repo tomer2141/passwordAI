@@ -3,5 +3,5 @@ nn = NeuralNetwork(2, 2, 1)
 
 inputs = [1, 0]
 
-output = nn.feedForward(inputs)
+output = nn.feedForward(inputs, False)
 print(output)

@@ -32,7 +32,7 @@ class NeuralNetwork:
         self.bias_h = numpy.random.rand(hidden_nodes, 1)
         self.bias_o = numpy.random.rand(outputs_nodes, 1)
 
-    def feedForward(self, inputs):
+    def feedForward(self, inputs, train):
         # Determine which activision function to use
         vecfunc = numpy.vectorize(sigmoid)
 
@@ -49,7 +49,11 @@ class NeuralNetwork:
         # Activision function
         output = vecfunc(output)
 
-        return numpy.squeeze(numpy.asarray(output))
+        if train:
+            return output
+        else:
+            return numpy.squeeze(numpy.asarray(output))
+
 
     def train(self, input, target):
-        output = self.feedForward(self, input)
+        output = self.feedForward(self, input, True)
