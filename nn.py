@@ -52,4 +52,4 @@ class NeuralNetwork:
         return numpy.squeeze(numpy.asarray(output))
 
     def train(self, input, target):
-        error = self.feedForward(self, input)
+        output = self.feedForward(self, input)
